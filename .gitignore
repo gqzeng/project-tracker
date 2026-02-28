@@ -1,0 +1,24 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/models/__pycache__/
+backend/app/schemas/__pycache__/
+backend/app/routers/__pycache__/
+backend/alembic/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend/dev.db
+backend/.env
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Editor
+.DS_Store
+*.swp
+.vscode/
+.idea/

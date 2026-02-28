@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: project-tracker
+    env: python
+    buildCommand: |
+      cd frontend && npm install && npm run build
+      cd ../backend && pip install -r requirements.txt && alembic upgrade head
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: project-tracker-db
+          property: connectionString
+      - key: AUTH_USERNAME
+        sync: false
+      - key: AUTH_PASSWORD
+        sync: false
+      - key: STATIC_DIR
+        value: ../frontend/dist
+      - key: CORS_ORIGINS
+        value: "[]"
+
+databases:
+  - name: project-tracker-db
+    plan: free
