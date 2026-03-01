@@ -2,7 +2,7 @@ services:
   - type: web
     name: project-tracker
     env: python
-    buildCommand: npm --prefix frontend install && npm --prefix frontend run build && cd backend && alembic upgrade head
+    buildCommand: source .venv/bin/activate && npm --prefix frontend install && npm --prefix frontend run build && cd backend && alembic upgrade head
     startCommand: bash start.sh
     envVars:
       - key: DATABASE_URL
