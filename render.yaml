@@ -3,7 +3,7 @@ services:
     name: project-tracker
     env: python
     buildCommand: npm --prefix frontend install && npm --prefix frontend run build && cd backend && alembic upgrade head
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: bash start.sh
     envVars:
       - key: DATABASE_URL
         fromDatabase:
